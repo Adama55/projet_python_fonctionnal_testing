@@ -5,7 +5,7 @@ class Menu:
     def add_menu_item(self, restaurant, item_name, description, price):
         if restaurant not in self.menus:
             self.menus[restaurant] = []
-        self.menus[restaurant].apppend({'item_name': item_name, 'description': description, 'price': price})
+        self.menus[restaurant].append({'item_name': item_name, 'description': description, 'price': price})
         return f"Menu item '{item_name}' added for {restaurant}."
     
     def get_menu(self, restaurant):
