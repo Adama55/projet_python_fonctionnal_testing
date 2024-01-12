@@ -15,7 +15,7 @@ import pytest
 
         ("Malifood", "Mafé", "sauce rachide et du riz", 10.50, 
          f"Menu item 'Mafé' added for Malifood.")
-        # Ajoutez ici d'autres jeux de données pour tester différents scénarios
+        
     ]
 )
 def test_add_menu_item(restaurant_name, item_name, description, price,expected_result):

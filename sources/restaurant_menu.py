@@ -15,7 +15,7 @@ class Menu:
         if restaurant not in self.menus:
             return "Menu not found."
         for item in self.menus[restaurant]:
-            if item[item_name] == item_name:
+            if item['item_name'] == item_name:
                 item['description'] = new_description
                 item['price'] = new_price
                 return f"Menu item '{item_name}' updated for {restaurant}."
