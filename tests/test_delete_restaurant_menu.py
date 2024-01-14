@@ -1,24 +1,19 @@
+from test_fixture_add_item import menu_manager_with_item
 from sources.restaurant_menu import Menu
 import pytest
 
-# Fixture pour créer une instance de Menu et ajouter un élément au menu
+
 @pytest.fixture
-def menu_manager_with_item():
-    menu_manager = Menu()
-    restaurant_name = "KFC"
-    item_name = "hot dog"
-    menu_manager.add_menu_item(restaurant_name, item_name, "dummy description", 10.00)
-    return menu_manager, restaurant_name, item_name
 
 # Test pour la méthode delete_menu_item
 @pytest.mark.usefixtures("menu_manager_with_item")
 @pytest.mark.parametrize(
     "restaurant_name, item_name, expected_result",
     [
-        ("KFC", "hot dog", f"Menu item 'hot dog' deleted for KFC.")
-        #("Burger", "cheese", f"Menu item 'cheese' deleted for Burger."),
-        #("Boulanger", "Panini", f"Menu item 'Panini' deleted for Boulanger."),
-        #("Malifood", "Mafé", f"Menu item 'Mafé' deleted for Malifood.")
+        ("KFC", "hot dog", f"Menu item 'hot dog' deleted for KFC."),
+        ("Burger", "cheese", f"Menu item 'cheese' deleted for Burger."),
+        ("Boulanger", "Panini", f"Menu item 'Panini' deleted for Boulanger."),
+        ("Malifood", "Mafé", f"Menu item 'Mafé' deleted for Malifood.")
     ]
 )
 def test_delete_restaurant_menu(menu_manager_with_item, restaurant_name, item_name, expected_result):
@@ -35,5 +30,5 @@ def test_delete_restaurant_menu(menu_manager_with_item, restaurant_name, item_na
     menu = menu_manager.get_menu(restaurant_name)
 
     # Vérification si l'élément supprimé n'est plus dans le menu
-    deleted_menu_item = {'item_name': item_name, 'description': "dummy description", 'price': 10.00}
+    deleted_menu_item = {'item_name': item_name, 'description': "my menu description", 'price': 10.00}
     assert deleted_menu_item not in menu

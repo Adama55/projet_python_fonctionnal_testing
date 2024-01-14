@@ -22,7 +22,7 @@ def menu_manager_with_item():
     item_name = "hot dog"
 
     # Ajoute un élément au menu avec des valeurs fictives
-    menu_manager.add_menu_item(restaurant_name, item_name, "dummy description", 10.00)
+    menu_manager.add_menu_item(restaurant_name, item_name, "my menu description", 10.00)
 
     # Renvoie un tuple contenant le gestionnaire de menu, le nom du restaurant et le nom de l'élément ajouté
     return menu_manager, restaurant_name, item_name
@@ -32,7 +32,7 @@ def test_update_restaurant_menu(restaurant_name, item_name, new_description, new
     menu_manager = Menu()
 
     # Ajout des éléments au menu
-    menu_manager.add_menu_item(restaurant_name, item_name, "dummy description", 10.00)
+    menu_manager.add_menu_item(restaurant_name, item_name, "my menu description", 10.00)
 
     # Appel de la méthode update_menu_item pour mettre à jour un élément du menu
     result = menu_manager.update_menu_item(restaurant_name, item_name, new_description, new_price)
