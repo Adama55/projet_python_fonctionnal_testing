@@ -1,12 +1,6 @@
-from test_fixture_add_item import menu_manager_with_item
 from sources.restaurant_menu import Menu
 import pytest
 
-
-@pytest.fixture
-
-# Test pour la méthode delete_menu_item
-@pytest.mark.usefixtures("menu_manager_with_item")
 @pytest.mark.parametrize(
     "restaurant_name, item_name, expected_result",
     [
@@ -17,8 +11,7 @@ import pytest
     ]
 )
 def test_delete_restaurant_menu(menu_manager_with_item, restaurant_name, item_name, expected_result):
-    menu_manager_with_item_result = menu_manager_with_item
-    menu_manager, _, _ = menu_manager_with_item_result
+    menu_manager, _, _ = menu_manager_with_item
 
     # Appel de la méthode delete_menu_item pour supprimer un élément du menu
     result = menu_manager.delete_menu_item(restaurant_name, item_name)
