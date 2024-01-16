@@ -13,7 +13,7 @@ import pytest
 def test_delete_restaurant_menu(menu_manager_with_item, restaurant_name, item_name, expected_result):
     menu_manager, _, _ = menu_manager_with_item
 
-    # Appel de la méthode delete_menu_item pour supprimer un élément du menu
+    ## Appel de la méthode delete_menu_item pour supprimer un élément du menu
     result = menu_manager.delete_menu_item(restaurant_name, item_name)
 
     # Vérification si l'élément a été correctement supprimé
