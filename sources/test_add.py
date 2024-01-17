@@ -1,4 +1,4 @@
-from sources.restaurant_menu import Menu 
+from sources.rest_menu import Menu, InvalidPriceError, DuplicateMenuItemError
 import pytest
 
 @pytest.mark.parametrize(
@@ -32,3 +32,12 @@ def test_add_menu_item(menu_manager_with_item, restaurant_name, item_name, descr
     menu = menu_manager.get_menu(restaurant_name)
     expected_menu_item = {'item_name': item_name, 'description': description, 'price': price}
     assert expected_menu_item in menu
+@pytest.mark.parametrize(
+    "invalid_price",
+    [-5.00, "invalid_price", None]
+)
+def test_add_menu_item_with_invalid_price(menu_manager, invalid_price):
+    with pytest.raises(InvalidPriceError):
+        menu_manager.add_menu_item("ExistingRestaurant", "item_name", "description", invalid_price)
+
+

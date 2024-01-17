@@ -12,9 +12,8 @@ from sources.restaurant_menu import Menu
         # Ajoutez ici d'autres jeux de données pour tester différents scénarios
     ]
 )
-def test_get_restaurant_menu(restaurant_name, item_name, description, price):
-    # Création d'une instance de la classe Menu
-    menu_manager = Menu()
+def test_get_restaurant_menu(menu_manager_with_item,restaurant_name, item_name, description, price):
+    menu_manager, _, _ = menu_manager_with_item
 
     # Ajout des éléments au menu
     menu_manager.add_menu_item(restaurant_name, item_name, description, price)
